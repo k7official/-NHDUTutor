@@ -35,8 +35,7 @@ struct ContentView: View {
                 .background(Color.green)
                 .cornerRadius(10)
                 
-                NavigationLink(destination: Text("You are logged in "), isActive: $showingLoginScreen) {
-                    EmptyView()
+                NavigationLink(destination: LoginView(), isActive: $showingLoginScreen) {
                 }
             }
             .padding()
