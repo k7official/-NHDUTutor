@@ -17,14 +17,14 @@ struct ContentView: View {
                 Text("NDHUTutor")
                     .fontWeight(.medium)
                     .font(.system(size: 40))
-                    .foregroundColor(.green)
+                    .foregroundColor(.blue)
                 
                 Button("Login"){
                     showingLoginScreen = true
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 50)
-                .background(Color.green)
+                .background(Color.blue)
                 .cornerRadius(10)
                 
                 Button("Register"){
@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 50)
-                .background(Color.green)
+                .background(Color.blue)
                 .cornerRadius(10)
                 
                 NavigationLink(destination: LoginView(), isActive: $showingLoginScreen) {
