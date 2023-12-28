@@ -15,6 +15,7 @@
 		9A5E6F8E2B3B43A10054297D /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E6F8D2B3B43A10054297D /* SubjectsView.swift */; };
 		9A5E6F902B3C10270054297D /* Tutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E6F8F2B3C10270054297D /* Tutor.swift */; };
 		9A5E6F922B3C14360054297D /* TutorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E6F912B3C14360054297D /* TutorsView.swift */; };
+		9A5E6F962B3C65C10054297D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E6F952B3C65C10054297D /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9A5E6F8D2B3B43A10054297D /* SubjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsView.swift; sourceTree = "<group>"; };
 		9A5E6F8F2B3C10270054297D /* Tutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutor.swift; sourceTree = "<group>"; };
 		9A5E6F912B3C14360054297D /* TutorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorsView.swift; sourceTree = "<group>"; };
+		9A5E6F952B3C65C10054297D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		9A0BF2572B3497C000177CCC /* NDHUTutor */ = {
 			isa = PBXGroup;
 			children = (
+				9A5E6F952B3C65C10054297D /* DetailView.swift */,
 				9A0BF2582B3497C000177CCC /* NDHUTutorApp.swift */,
 				9A0BF25A2B3497C000177CCC /* ContentView.swift */,
 				9A0BF2662B355B2300177CCC /* LoginView.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A5E6F902B3C10270054297D /* Tutor.swift in Sources */,
+				9A5E6F962B3C65C10054297D /* DetailView.swift in Sources */,
 				9A5E6F922B3C14360054297D /* TutorsView.swift in Sources */,
 				9A0BF2672B355B2300177CCC /* LoginView.swift in Sources */,
 				9A0BF25B2B3497C000177CCC /* ContentView.swift in Sources */,

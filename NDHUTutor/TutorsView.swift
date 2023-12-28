@@ -73,7 +73,9 @@ struct TutorsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(filteredTutors, id: \.id) { tutor in
-                            TutorView(tutor: tutor)
+                            NavigationLink(destination: DetailView(tutor: tutor)) {
+                                TutorView(tutor: tutor)
+                            }
                         }
                     }
                 }
