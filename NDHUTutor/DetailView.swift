@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @State private var isBookingSheetPresented = false
-    var tutor: Tutor
+    var tutor: TutorModel
     
     var body: some View {
         VStack {
@@ -75,7 +75,7 @@ struct DetailView: View {
 }
 
 struct BookingSheetView: View {
-    var tutor: Tutor
+    var tutor: TutorModel
     @Binding var isBookingSheetPresented: Bool
     @State private var selectedSubjectIndex = 0
     @State private var selectedDate = Date()
@@ -92,14 +92,15 @@ struct BookingSheetView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack (alignment: .leading){
         
                 Text("Make a Booking")
                     .font(.title)
                     .bold()
                     .padding()
+                Text("\(tutor.name)")
+                    .padding(.leading)
                 Form {
-                    
                     
                     // Subject Picker
                     Section {
@@ -130,10 +131,16 @@ struct BookingSheetView: View {
                             }
                         }
                     }
-                    Button("Book Tutor") {
+                    Button("Confirm") {
                         // Handle the booking action with the selected subject, date, and time
                         print("Booking: Subject - \(subjects[selectedSubjectIndex]), Date - \(selectedDate), Time - \(selectedTime)")
                     }
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
                 }
             }
             .toolbar {
@@ -150,7 +157,7 @@ struct BookingSheetView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let sampleTutor = Tutor(name: "John Doe", image: "tutor1", hourlyRates: 300, subjectsTaught: ["Math", "Physics"])
+        let sampleTutor = TutorModel(name: "John Doe", image: "tutor1", hourlyRates: 300, subjectsTaught: ["Math", "Physics"])
         DetailView(tutor: sampleTutor)
     }
 }

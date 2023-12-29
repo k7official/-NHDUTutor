@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Tutor: Identifiable {
+struct TutorModel: Identifiable {
     var id = UUID()
     var name: String = ""
     var image: String = ""

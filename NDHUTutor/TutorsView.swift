@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TutorView: View {
-    let tutor: Tutor
+    let tutor: TutorModel
 
     var body: some View {
         VStack {
@@ -30,9 +30,9 @@ struct TutorView: View {
 }
 
 struct TutorsView: View {
-    var tutors: [Tutor] = [
-        Tutor(id: UUID(), name: "John Doe", image: "tutor1", hourlyRates: 300, subjectsTaught: ["Calculus", "Discrete maths"]),
-        Tutor(id: UUID(), name: "Jane Doe", image: "tutor3", hourlyRates: 350, subjectsTaught: ["Physics", "Chinese"])
+    var tutors: [TutorModel] = [
+        TutorModel(id: UUID(), name: "John Doe", image: "tutor1", hourlyRates: 300, subjectsTaught: ["Calculus", "Discrete maths"]),
+        TutorModel(id: UUID(), name: "Jane Doe", image: "tutor3", hourlyRates: 350, subjectsTaught: ["Physics", "Chinese"])
         // Add more tutors as needed
     ]
     
@@ -40,7 +40,7 @@ struct TutorsView: View {
     
     @State var filterText = "All"
     
-    var filteredTutors: [Tutor] {
+    var filteredTutors: [TutorModel] {
         if filterText.isEmpty {
             return tutors
         } else {
