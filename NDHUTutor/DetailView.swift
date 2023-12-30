@@ -9,6 +9,10 @@ import SwiftUI
 
 struct DetailView: View {
     @State private var isBookingSheetPresented = false
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    var persistenceController: PersistenceController
+
     var tutor: TutorModel
     
     var body: some View {
@@ -66,7 +70,7 @@ struct DetailView: View {
             }
             .padding(.horizontal)
             .sheet(isPresented: $isBookingSheetPresented) {
-                BookingSheetView(tutor: tutor, isBookingSheetPresented: $isBookingSheetPresented)
+                BookingSheetView(tutor: tutor, isBookingSheetPresented: $isBookingSheetPresented, persistenceController: persistenceController)
             }
         }
         // Add more details as needed
@@ -77,10 +81,12 @@ struct DetailView: View {
 struct BookingSheetView: View {
     var tutor: TutorModel
     @Binding var isBookingSheetPresented: Bool
+    var persistenceController: PersistenceController
+    
     @State private var selectedSubjectIndex = 0
     @State private var selectedDate = Date()
-    @State private var selectedTime = Date()
     @State private var selectedTimeIndex = 0
+    @State private var isBookingConfirmed = false
     
     var subjects: [String] {
         tutor.subjectsTaught
@@ -133,7 +139,10 @@ struct BookingSheetView: View {
                     }
                     Button("Confirm") {
                         // Handle the booking action with the selected subject, date, and time
-                        print("Booking: Subject - \(subjects[selectedSubjectIndex]), Date - \(selectedDate), Time - \(selectedTime)")
+                        persistenceController.addBooking(tutor: tutor.name, date: selectedDate, subject: subjects[selectedSubjectIndex], time: timeSlots[selectedTimeIndex])
+                        
+                        print("Booking: Subject - \(subjects[selectedSubjectIndex]), Date - \(selectedDate), Time - \(timeSlots[selectedTimeIndex])")
+                        isBookingConfirmed = true
                     }
                     .font(.headline)
                     .foregroundColor(.white)
@@ -141,6 +150,12 @@ struct BookingSheetView: View {
                     .padding()
                     .background(Color.blue)
                     .cornerRadius(10)
+                    
+                    NavigationLink(
+                        destination: ConfirmationView(),
+                        isActive: $isBookingConfirmed,
+                        label: { EmptyView() }
+                    )
                 }
             }
             .toolbar {
@@ -155,9 +170,22 @@ struct BookingSheetView: View {
     }
 }
 
+struct ConfirmationView: View {
+    var body: some View {
+        VStack {
+            Image(systemName: "checkmark.circle.fill")
+                .resizable()
+                .frame(width: 50, height: 50)
+            Text("Booking Confirmed!")
+                .font(.title)
+            .padding()
+        }
+    }
+}
+
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         let sampleTutor = TutorModel(name: "John Doe", image: "tutor1", hourlyRates: 300, subjectsTaught: ["Math", "Physics"])
-        DetailView(tutor: sampleTutor)
+        DetailView(persistenceController: PersistenceController.shared, tutor: sampleTutor)
     }
 }

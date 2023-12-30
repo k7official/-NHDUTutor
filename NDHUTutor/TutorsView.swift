@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TutorView: View {
     let tutor: TutorModel
+    @Environment(\.managedObjectContext) private var viewContext
+    let persistenceController = PersistenceController.shared
 
     var body: some View {
         VStack {
@@ -73,7 +75,7 @@ struct TutorsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(filteredTutors, id: \.id) { tutor in
-                            NavigationLink(destination: DetailView(tutor: tutor)) {
+                            NavigationLink(destination: DetailView(persistenceController: PersistenceController.shared, tutor: tutor)) {
                                 TutorView(tutor: tutor)
                             }
                         }
