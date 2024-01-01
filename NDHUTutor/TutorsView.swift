@@ -28,6 +28,9 @@ struct TutorView: View {
                 .foregroundColor(.gray)
         }
         .padding()
+        .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
+       
     }
 }
 
@@ -73,10 +76,17 @@ struct TutorsView: View {
                 .padding(.horizontal)
                 
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 10) {
-                        ForEach(filteredTutors, id: \.id) { tutor in
-                            NavigationLink(destination: DetailView(persistenceController: PersistenceController.shared, tutor: tutor)) {
-                                TutorView(tutor: tutor)
+                    if filteredTutors.isEmpty {
+                        Text("No tutors available for \(filterText)")
+                            .foregroundColor(.red)
+                            .font(.system(size: 40))
+                            .padding()
+                    } else {
+                        LazyVGrid(columns: columns, spacing: 10) {
+                            ForEach(filteredTutors, id: \.id) { tutor in
+                                NavigationLink(destination: DetailView(persistenceController: PersistenceController.shared, tutor: tutor)) {
+                                    TutorView(tutor: tutor)
+                                }
                             }
                         }
                     }

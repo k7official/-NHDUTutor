@@ -12,15 +12,20 @@ struct SubjectView: View {
     let subjectName: String
 
     var body: some View {
-        VStack {
-            Image(imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 150)
-                .cornerRadius(10)
-            Text(subjectName)
+        NavigationLink(destination: TutorsView(filterText: subjectName)) {
+            VStack {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150)
+                    .cornerRadius(10)
+                Text(subjectName)
+                
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+        .cornerRadius(10)
         }
-        .padding()
     }
 }
 
@@ -37,6 +42,7 @@ struct SubjectsView: View {
     var columns = [GridItem(.adaptive(minimum: 150), spacing: 10)]
 
     var body: some View {
+        
         NavigationView {
             ScrollView {
                 LazyVGrid (columns: columns, spacing: 10){

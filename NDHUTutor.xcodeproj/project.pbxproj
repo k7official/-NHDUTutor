@@ -19,6 +19,7 @@
 		9A7DF8AC2B3F06A5006C373C /* NDHUTutor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DF8AA2B3F06A5006C373C /* NDHUTutor.xcdatamodeld */; };
 		9A7DF8EA2B3F1E0B006C373C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DF8E92B3F1E0B006C373C /* Persistence.swift */; };
 		9A7DF8EC2B4001BA006C373C /* BookingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DF8EB2B4001BA006C373C /* BookingListView.swift */; };
+		9A7DF8EE2B42A7B2006C373C /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DF8ED2B42A7B2006C373C /* TabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9A7DF8AB2B3F06A5006C373C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9A7DF8E92B3F1E0B006C373C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9A7DF8EB2B4001BA006C373C /* BookingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingListView.swift; sourceTree = "<group>"; };
+		9A7DF8ED2B42A7B2006C373C /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				9A7DF8AA2B3F06A5006C373C /* NDHUTutor.xcdatamodeld */,
 				9A7DF8E92B3F1E0B006C373C /* Persistence.swift */,
 				9A7DF8EB2B4001BA006C373C /* BookingListView.swift */,
+				9A7DF8ED2B42A7B2006C373C /* TabView.swift */,
 			);
 			path = NDHUTutor;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7DF8EE2B42A7B2006C373C /* TabView.swift in Sources */,
 				9A7DF8EA2B3F1E0B006C373C /* Persistence.swift in Sources */,
 				9A5E6F902B3C10270054297D /* Tutor.swift in Sources */,
 				9A5E6F962B3C65C10054297D /* DetailView.swift in Sources */,
