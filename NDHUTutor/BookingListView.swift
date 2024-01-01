@@ -71,6 +71,7 @@ struct BookingListView: View {
 
 struct BookingDetailView: View {
     var booking: Booking
+    @State private var showModifyActionSheet = false
     
     var body: some View {
         VStack {
@@ -78,10 +79,33 @@ struct BookingDetailView: View {
                 .font(.title)
             
             Text("Tutor: \(booking.tutor ?? "Unknown Subject")")
+                .padding()
             Text("Subject: \(booking.subject ?? "Unknown Subject")")
+                .padding()
             Text("Date: \(booking.date?.description ?? "Unknown Date")")
+                .padding()
             Text("Time: \(booking.time ?? "Unknown Subject")")
+                .padding()
             // Add more details as needed
+            
+            //Button
+            Button("Modify") {
+                showModifyActionSheet = true
+            }
+            .actionSheet(isPresented: $showModifyActionSheet) {
+                ActionSheet(
+                    title: Text("Confirm Modification"),
+                    message: Text("Are you sure you want to modify this booking?"),
+                    buttons: [
+                        .default(Text("Modify"), action: {
+                            // Implement your modify action here
+                            // You can navigate to a modify view or perform any other modification logic
+                        }),
+                        .cancel()
+                    ]
+                )
+            }
+            
         }
         .padding()
     }
