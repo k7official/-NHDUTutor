@@ -9,16 +9,22 @@ import SwiftUI
 
 struct LoginView: View {
     
+    //@Environment(\.presentationMode) var presentationMode
+    @Binding var isAuthenticated: Bool
+    
     @State private var username = ""
     @State private var password = ""
     @State private var wrongUsername: Float = 0
     @State private var wrongPassword: Float = 0
-    @State private var showingLoginScreen = false
+    //@State private var showingLoginScreen = false
+    //@State private var isAuthenticated = false
     
     
     var body: some View {
         NavigationView {
+            
             VStack {
+                
                 Text("Login")
                     .font(.largeTitle)
                     .bold()
@@ -41,15 +47,28 @@ struct LoginView: View {
                 
                 Button("Login") {
                     authenticateUser(username: username, password: password)
+                    
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 50)
                 .background(Color.blue)
                 .cornerRadius(10)
                 
-                NavigationLink(destination: SubjectsView(), isActive: $showingLoginScreen) {
-                    EmptyView()
-                }
+//                NavigationLink(destination: TabView_(), isActive: $showingLoginScreen) {
+//                    EmptyView()
+//                }
+//                if isAuthenticated {
+//                    TabView_()
+//                }
+//                if isAuthenticated {
+//                    NavigationLink(
+//                        destination: TabView_(),
+//                        isActive: $isAuthenticated
+//                    ) {
+//                        EmptyView()
+//                    }
+//                    .hidden()
+//                }
             }
             .navigationBarHidden(true)
         }
@@ -60,7 +79,8 @@ struct LoginView: View {
             wrongUsername = 0
             if password.lowercased() == "123" {
                 wrongPassword = 0
-                showingLoginScreen = true
+               // showingLoginScreen = true
+                isAuthenticated = true
             } else {
                 wrongPassword = 2
             }
@@ -72,6 +92,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isAuthenticated: .constant(true))
     }
 }

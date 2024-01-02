@@ -11,11 +11,15 @@ import SwiftUI
 struct NDHUTutorApp: App {
     let persistenceController = PersistenceController.shared
     
+    @State private var isAuthenticated = false
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
+            if isAuthenticated {
+                TabView_()
+            }else {
+                ContentView(isAuthenticated: $isAuthenticated)
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showingLoginScreen = false
+    @Binding var isAuthenticated: Bool
     
     var body: some View {
         NavigationView {
@@ -35,7 +36,7 @@ struct ContentView: View {
                 .background(Color.blue)
                 .cornerRadius(10)
                 
-                NavigationLink(destination: LoginView(), isActive: $showingLoginScreen) {
+                NavigationLink(destination: LoginView(isAuthenticated: $isAuthenticated), isActive: $showingLoginScreen) {
                 }
             }
             .padding()
@@ -48,6 +49,23 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(isAuthenticated: .constant(false))
     }
 }
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Use a State variable to simulate binding
+//        struct PreviewContainer: View {
+//            @Binding var isAuthenticated: Bool
+//
+//            var body: some View {
+//                NavigationView {
+//                    ContentView(isAuthenticated: $isAuthenticated)
+//                }
+//            }
+//        }
+//
+//        return PreviewContainer()
+//    }
+//}
+
