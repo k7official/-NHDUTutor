@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+struct CircleImage: View {
+    var image: String
+    var body: some View {
+        Image(image)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 150, height: 150)
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.white, lineWidth: 4)
+            }
+            .shadow(radius: 7)
+    }
+}
+
 struct DetailView: View {
     @State private var isBookingSheetPresented = false
     
@@ -21,11 +36,30 @@ struct DetailView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     // Tutor Image
-                    Image(tutor.image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 200)
-                        .clipped()
+                    if (tutor.name == "Denton Cannon") {
+                        Image("t11")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 200)
+                            .clipped()
+                        
+                        CircleImage(image: "tutor5")
+                            .offset(y: -130)
+                            .padding(.bottom, -130)
+                    }else{
+                        Image("t2")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 200)
+                            .clipped()
+                        
+                        CircleImage(image: "tutor6")
+                            .offset(y: -130)
+                            .padding(.bottom, -130)
+                    }
+                    
+                    
+                    
                     
                     // Tutor Name
                     Text(tutor.name)

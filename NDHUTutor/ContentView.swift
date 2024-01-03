@@ -15,6 +15,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Image("ndhu")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150)
+                    //.opacity(0.2)
+                    .shadow(radius: 30)
                 Text("NDHUTutor")
                     .fontWeight(.medium)
                     .font(.system(size: 40))
@@ -40,6 +46,9 @@ struct ContentView: View {
                 }
             }
             .padding()
+//            .background(
+//                Color
+//            )
         }
         .navigationBarHidden(true)
     }

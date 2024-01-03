@@ -14,11 +14,8 @@ struct TutorView: View {
 
     var body: some View {
         VStack {
-            Image(tutor.image)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 150, height: 150)
-                .cornerRadius(10)
+            
+            CircleImage(image: tutor.image)
 
             Text(tutor.name)
                 .font(.headline)
@@ -36,8 +33,8 @@ struct TutorView: View {
 
 struct TutorsView: View {
     var tutors: [TutorModel] = [
-        TutorModel(id: UUID(), name: "John Doe", image: "tutor1", hourlyRates: 300, subjectsTaught: ["Calculus", "Discrete maths"]),
-        TutorModel(id: UUID(), name: "Jane Doe", image: "tutor3", hourlyRates: 350, subjectsTaught: ["Physics", "Chinese"])
+        TutorModel(id: UUID(), name: "Denton Cannon", image: "tutor5", hourlyRates: 300, subjectsTaught: ["Calculus", "Discrete maths"]),
+        TutorModel(id: UUID(), name: "Minerva Ingram", image: "tutor6", hourlyRates: 350, subjectsTaught: ["Physics", "Chinese"])
         // Add more tutors as needed
     ]
     
