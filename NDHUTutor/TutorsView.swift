@@ -41,12 +41,13 @@ struct TutorsView: View {
     var subjects = ["All", "Calculus", "Chinese", "Physics", "Programming", "Discrete maths", "Linear algebra"]
     
     @State var filterText = "All"
+    @State private var searchText = ""
     
     var filteredTutors: [TutorModel] {
-        if filterText.isEmpty {
-            return tutors
-        } else {
+        if searchText.isEmpty {
             return tutors.filter { $0.subjectsTaught.contains(filterText) || filterText == "All" }
+        } else {
+            return tutors.filter {$0.name.localizedCaseInsensitiveContains(searchText)}
         }
     }
 
@@ -55,6 +56,14 @@ struct TutorsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                
+                TextField("Search Tutors", text: $searchText)
+                    .padding()
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: searchText) { newValue in
+                        // Optionally perform additional actions when the search text changes
+                    }
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(subjects, id: \.self) { subject in

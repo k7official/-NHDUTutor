@@ -30,7 +30,7 @@ struct TabView_: View {
                     Image(systemName: "calendar")
                     Text("Bookings")
                 }
-            
+        
             // Add more views as needed
         }
     }
