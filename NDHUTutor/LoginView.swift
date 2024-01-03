@@ -51,7 +51,7 @@ struct LoginView: View {
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 50)
-                .background(Color.blue)
+                .background(Color("color1"))
                 .cornerRadius(10)
                 
 //                NavigationLink(destination: TabView_(), isActive: $showingLoginScreen) {

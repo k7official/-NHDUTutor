@@ -73,8 +73,8 @@ struct TutorsView: View {
                                 Text(subject)
                                     .padding()
                                     .foregroundColor(self.filterText == subject ? .white : .black)
-                                    .background(self.filterText == subject ? Color.blue : Color.gray)
-                                    //.cornerRadius(8)
+                                    .background(self.filterText == subject ? Color("color1") : Color.gray)
+                                    .cornerRadius(8)
                             }
                         }
                     }
@@ -99,6 +99,8 @@ struct TutorsView: View {
                 }
                 .navigationTitle("Tutors")
             }
+            
+            
         }
     }
 }

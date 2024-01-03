@@ -81,7 +81,7 @@ struct DetailView: View {
                         
                         ForEach(tutor.subjectsTaught, id: \.self) { subject in
                             Text(subject)
-                                .foregroundColor(.blue)
+                                //.foregroundColor(.blue)
                                 .padding(.horizontal)
                         }
                     }
@@ -99,7 +99,7 @@ struct DetailView: View {
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color("color1"))
                     .cornerRadius(10)
             }
             .padding(.horizontal)
